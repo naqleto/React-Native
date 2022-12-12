@@ -1,34 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 
 
 function App(){
   
   return(
-    <View style={styles.area}>
-      <Text style={[styles.titulo, styles.textoAlinahado]}> Wilson \0/</Text>
-      <Text style={styles.titulo}> Sujeito </Text>
-      <Text style={[styles.subTitulo, styles.textoAlinahado]}> Outro Texto </Text>
-
+    <View style={{ flex:1, backgroundColor:'#121212'}}>
+      <View style={{ height: 65, backgroundColor:'#121212'}}></View>
+      <View style={{ flex:1, backgroundColor:'#ffffff'}}>
+        <Text> Eu sou um Texto</Text>
+      </View>
+      <View style={{ height:65, backgroundColor:'#121212'}}></View>
     </View>
   );
 }
-const styles=StyleSheet.create({
-  area:{
-    marginTop: 50
-  },
-  titulo:{
-    fontsize: 20,
-    color: '#ff0000',
-  },
-  subTitulo: {
-    color: '#00ff',
-    fontSize: 20,
-    marginTop: 25,
-  },
-  textoAlinahado:{
-    textAlign: 'center',
-  }
-});
+
 export default App;
 
