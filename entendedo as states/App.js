@@ -1,27 +1,31 @@
 import React, {useState} from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet,Button } from "react-native";
 
 function App(){
   const [nome, setNome] = useState('');
+  const [input, setInput] = useState('');
 
-  function pegaNome(texto){
+  function entrar (){
 
-    if(texto.length > 0){
-      setNome('Bem vindo' + ', ' + texto);
+    if (input === '') {
+      alert(' Digite seu nome!');
+      return;
     }
-    else{
-      setNome('');
-    }
-    
+
+    setNome(input);
   }
   
   return(
     <View style={styles.container}>
+
       <TextInput
       style={styles.input}
       placeholder="Digite seu nome"
-      onChangeText={ (text) => pegaNome(text)}
+      onChangeText={ (texto) => setInput(texto) }
       />
+
+      <Button title="Entrar" onPress={entrar} />
+
      <Text style={styles.texto}>{nome}</Text>
      
      
