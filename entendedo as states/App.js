@@ -1,19 +1,52 @@
-import React from "react";
-import { View, Text } from "react-native";
-
+import React, {useState} from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
 
 function App(){
+  const [nome, setNome] = useState('');
+
+  function pegaNome(texto){
+
+    if(texto.length > 0){
+      setNome('Bem vindo' + ', ' + texto);
+    }
+    else{
+      setNome('');
+    }
+    
+  }
   
   return(
-    <View style={{ flex:1, backgroundColor:'#121212'}}>
-      <View style={{ height: 65, backgroundColor:'#121212'}}></View>
-      <View style={{ flex:1, backgroundColor:'#ffffff'}}>
-        <Text> Eu sou um Texto</Text>
-      </View>
-      <View style={{ height:65, backgroundColor:'#121212'}}></View>
+    <View style={styles.container}>
+      <TextInput
+      style={styles.input}
+      placeholder="Digite seu nome"
+      onChangeText={ (text) => pegaNome(text)}
+      />
+     <Text style={styles.texto}>{nome}</Text>
+     
+     
     </View>
+    
   );
 }
 
+const styles = StyleSheet.create({
+    container:{
+      flex:1,
+      justifyContent: 'center',
+    },
+    input:{
+      height:50,
+      borderWidth:1,
+      margin:10,
+      padding:10,
+      fontSize:20,
+      
+    },
+    texto:{
+      textAlign:'center',
+      fontSize: 25,
+    }
+});
 export default App;
 
